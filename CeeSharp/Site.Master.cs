@@ -107,7 +107,7 @@ namespace CeeSharp
 
         protected void PlayBtn_Click(object sender, ImageClickEventArgs e)
         {
-            Session["HiddenNav"] = "hide";
+            //Session["HiddenNav"] = "hide";
             Response.Redirect("~/Game");
 
         }
