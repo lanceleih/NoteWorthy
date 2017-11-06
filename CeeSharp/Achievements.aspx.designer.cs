@@ -13,15 +13,6 @@ namespace CeeSharp {
     public partial class Achievements {
         
         /// <summary>
-        /// achievements control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl achievements;
-        
-        /// <summary>
         /// ProfilePic control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace CeeSharp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// achievementIcons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl achievementIcons;
     }
 }

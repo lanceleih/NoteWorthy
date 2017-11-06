@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-            <div id="achievements" runat="server">
+            <div>
                 
                 <div class="row">
                     <div class="col-xs-6" style="left: 0px; top: 0px; width: 34%" >
@@ -13,7 +13,7 @@
                         <br />
                         <br />
                         <br />
-                        <ul class="list-inline">
+                        <ul id="achievementIcons" runat="server" class="list-inline">
                             <li><img src="Icons/002-success.png" height="75" /></li>
                             <li><img src="Icons/002-success.png" height="75" /></li>
                             <li><img src="Icons/002-success.png" height="75" /></li>
