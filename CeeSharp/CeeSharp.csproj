@@ -225,6 +225,7 @@
     <Content Include="Icons\004-info.png" />
     <Content Include="Icons\game.gif" />
     <Content Include="Icons\tutorial.gif" />
+    <Content Include="Icons\yay.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
