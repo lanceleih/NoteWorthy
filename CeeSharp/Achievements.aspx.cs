@@ -10,12 +10,14 @@ namespace CeeSharp
 {
     public partial class Achievements : System.Web.UI.Page
     {
-        private Dictionary<int, Boolean> achievements = new Dictionary<int, bool>();
+        private static Dictionary<int, Boolean> achievements = new Dictionary<int, bool>();
+        private static string trophies;
         protected void Page_Load(object sender, EventArgs e)
         {
             populate();
-            string trophies = "1,3,5,7,9,11,";
+            trophies = "1,2,3,5,";
             retrieveTrophies(trophies);
+            highLight();
 
         }
 
@@ -37,7 +39,6 @@ namespace CeeSharp
 
         private void retrieveTrophies(string trophies)
         {
-            //Console.WriteLine("INSIDE ACHIEVEMENTS");
             Debug.WriteLine("INSIDE ACHIEVEMENTS");
             string check = string.Empty;
             int id = 0;
@@ -55,7 +56,55 @@ namespace CeeSharp
                     id = 0;
                 }
             }
+        }
 
+        private void highLight()
+        {
+            foreach(var trophy in achievements)
+            {
+                if(trophy.Value.Equals(true))
+                {
+                    switch(trophy.Key)
+                    {
+                        case 1:
+                            if(!Object.ReferenceEquals(img1, null))
+                            {
+                                img1.Src = "Icons/yay.png";
+                                img1.Height = 75;
+                            }
+                            break;
+                        case 2:
+                            if (!Object.ReferenceEquals(img2, null))
+                            {
+                                img2.Src = "Icons/yay.png";
+                                img2.Height = 75;
+                            }
+                            break;
+                        case 3:
+                            if (!Object.ReferenceEquals(img3, null))
+                            {
+                                img3.Src = "Icons/yay.png";
+                                img3.Height = 75;
+                            }
+                            break;
+                        case 4:
+                            if (!Object.ReferenceEquals(img4, null))
+                            {
+                                img4.Src = "Icons/yay.png";
+                                img4.Height = 75;
+                            }
+                            break;
+                        case 5:
+                            if (!Object.ReferenceEquals(img5, null))
+                            {
+                                img5.Src = "Icons/yay.png";
+                                img5.Height = 75;
+                            }
+                            break;
+
+                    }
+                }
+            }
         }
     }
 }
