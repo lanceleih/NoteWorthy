@@ -13,5 +13,10 @@ namespace CeeSharp
         {
 
         }
+
+        protected void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Account/Register.aspx");
+        }
     }
 }

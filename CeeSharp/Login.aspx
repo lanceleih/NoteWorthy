@@ -12,6 +12,7 @@
                 <br />
                 <br />
                 <asp:Button ID="LoginBtn" CssClass="btn btn-success btn-lg" runat="server" style="font-size: small" Text="Login" />
+                <asp:Button ID="RegisterBtn" CssClass="btn btn-success btn-lg" runat="server" style="font-size: small" Text="Register" OnClick="RegisterBtn_Click" />
             </div>
         </div>
 </asp:Content>
