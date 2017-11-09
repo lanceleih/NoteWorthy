@@ -1,9 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Game.aspx.cs" Inherits="CeeSharp.Game" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <!--
+        COMP4952 Project
+        Author: Lancelei Herradura, Teah Elaschuk
+
+        The Game Selection page has two panels representing the 2 games (Intervals and Arpeggios), 
+        each with dots representing various levels.
+    -->
     <div class="text-center">
         <h1>Game</h1>
-
         <!-- Intervals section -->
         <div class="panel panel-default">
             <div class="panel-heading">
