@@ -22,6 +22,7 @@ namespace CeeSharp
             if (sender is LinkButton)
             {
                 string s = (sender as LinkButton).ID;
+                Session["HiddenNav"] = "hide";
                 Response.Redirect("~/InGame.aspx?GameType=interval&Level=" + s.Substring(INTERVAL_SUFFIX));
             }
         }
@@ -31,6 +32,7 @@ namespace CeeSharp
             if (sender is LinkButton)
             {
                 string s = (sender as LinkButton).ID;
+                Session["HiddenNav"] = "hide";
                 Response.Redirect("~/InGame.aspx?GameType=arpeggio&Level=" + s.Substring(ARPEGGIO_SUFFIX));
             }
         }

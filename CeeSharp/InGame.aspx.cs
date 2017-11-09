@@ -11,7 +11,14 @@ namespace CeeSharp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Request.QueryString["level"];
+            if(Request.QueryString["GameType"] != null 
+                && Request.QueryString["Level"] != null)
+            {
+                Label_title.Text = "<h1>" 
+                    + Request.QueryString["GameType"].ToString() 
+                    + ": " + Request.QueryString["Level"].ToString()
+                    + "</h1>";
+            }
         }
     }
 }
