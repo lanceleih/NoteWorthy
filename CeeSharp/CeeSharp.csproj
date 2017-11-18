@@ -225,7 +225,10 @@
     <Content Include="Icons\002-success.png" />
     <Content Include="Icons\003-profile.png" />
     <Content Include="Icons\004-info.png" />
+    <Content Include="Icons\bigstring.png" />
     <Content Include="Icons\game.gif" />
+    <Content Include="Icons\nut.png" />
+    <Content Include="Icons\string.png" />
     <Content Include="Icons\tutorial.gif" />
     <Content Include="Icons\yay.png" />
     <Content Include="InGame.aspx" />
