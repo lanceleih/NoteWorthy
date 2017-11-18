@@ -65,6 +65,7 @@ namespace CeeSharp
                 // no level information, go back
                 Response.Redirect("~/Game.aspx");
             }
+
             InitFretboard();
             InitValues();
             SetTooltips();
@@ -96,7 +97,7 @@ namespace CeeSharp
                         // the first note is not technically a fret, but an open string. 
                         // styled differently for clarity
                         Table_fretboard.Rows[i].Cells[j].BackColor = System.Drawing.Color.Beige;
-                        Table_fretboard.Rows[i].Cells[j].Controls.Add(new LinkButton { Text = "*" });
+                        Table_fretboard.Rows[i].Cells[j].Text = "*";
                         Table_fretboard.Rows[i].Cells[j].Style.Add("padding-left", "10px");
                         Table_fretboard.Rows[i].Cells[j].Style.Add("padding-right", "10px");
                     }
@@ -106,7 +107,8 @@ namespace CeeSharp
                         Table_fretboard.Rows[i].Cells[j].Controls.Add(new ImageButton
                         {
                             ImageUrl = "~/Icons/bigstring.png",
-                            Width = new Unit("100%")
+                            Width = new Unit("100%"),
+                            CausesValidation = false
                         });
                     }
                 }
@@ -179,9 +181,8 @@ namespace CeeSharp
             string s = "";
             for(int i = 0; i < numStrings; i++)
             {
-                Control btn = Table_fretboard.Rows[i].Cells[0].Controls[0];
                 if (notes.TryGetValue(Table_fretboard.Rows[i].Cells[0], out s))
-                    (btn as LinkButton).Text = s;
+                    Table_fretboard.Rows[i].Cells[0].Text = s;
             }
         }
 
