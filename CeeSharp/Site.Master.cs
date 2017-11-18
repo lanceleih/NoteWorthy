@@ -91,8 +91,7 @@ namespace CeeSharp
 
         protected void AccountBtn_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("~/Login");
-            
+            Response.Redirect("~/Login");            
         }
 
         protected void AchievementBtn_Click(object sender, ImageClickEventArgs e)
@@ -107,9 +106,7 @@ namespace CeeSharp
 
         protected void PlayBtn_Click(object sender, ImageClickEventArgs e)
         {
-            //Session["HiddenNav"] = "hide";
             Response.Redirect("~/Game");
-
         }
     }
 

@@ -228,6 +228,7 @@
     <Content Include="Icons\game.gif" />
     <Content Include="Icons\tutorial.gif" />
     <Content Include="Icons\yay.png" />
+    <Content Include="InGame.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -424,6 +425,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InGame.aspx.cs">
+      <DependentUpon>InGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InGame.aspx.designer.cs">
+      <DependentUpon>InGame.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
