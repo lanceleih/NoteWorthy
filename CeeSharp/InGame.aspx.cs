@@ -65,9 +65,11 @@ namespace CeeSharp
                 // no level information, go back
                 Response.Redirect("~/Game.aspx");
             }
+
             InitFretboard();
             InitValues();
             SetTooltips();
+            SetStringLabels();
         }
 
         /// <summary>
@@ -95,7 +97,7 @@ namespace CeeSharp
                         // the first note is not technically a fret, but an open string. 
                         // styled differently for clarity
                         Table_fretboard.Rows[i].Cells[j].BackColor = System.Drawing.Color.Beige;
-                        Table_fretboard.Rows[i].Cells[j].Controls.Add(new LinkButton { Text = "*" });
+                        Table_fretboard.Rows[i].Cells[j].Text = "*";
                         Table_fretboard.Rows[i].Cells[j].Style.Add("padding-left", "10px");
                         Table_fretboard.Rows[i].Cells[j].Style.Add("padding-right", "10px");
                     }
@@ -105,7 +107,8 @@ namespace CeeSharp
                         Table_fretboard.Rows[i].Cells[j].Controls.Add(new ImageButton
                         {
                             ImageUrl = "~/Icons/bigstring.png",
-                            Width = new Unit("100%")
+                            Width = new Unit("100%"),
+                            CausesValidation = false
                         });
                     }
                 }
@@ -162,11 +165,24 @@ namespace CeeSharp
             string s = "";
             for(int i = 0; i < numStrings; i++)
             {
-                for(int j = 0; j < numFrets; j++)
+                for(int j = 1; j < numFrets; j++)
                 {
-                    notes.TryGetValue(Table_fretboard.Rows[i].Cells[j], out s);
-                    Table_fretboard.Rows[i].Cells[j].ToolTip = s;
+                    if(notes.TryGetValue(Table_fretboard.Rows[i].Cells[j], out s))
+                        Table_fretboard.Rows[i].Cells[j].ToolTip = s;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Sets the string names in the first column (open notes)
+        /// </summary>
+        protected void SetStringLabels()
+        {
+            string s = "";
+            for(int i = 0; i < numStrings; i++)
+            {
+                if (notes.TryGetValue(Table_fretboard.Rows[i].Cells[0], out s))
+                    Table_fretboard.Rows[i].Cells[0].Text = s;
             }
         }
 
