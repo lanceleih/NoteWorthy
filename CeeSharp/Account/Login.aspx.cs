@@ -40,8 +40,8 @@ namespace CeeSharp.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        Response.Redirect("~/Achievements");
+                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        // Response.Redirect("~/Achievements");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");
