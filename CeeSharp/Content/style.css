@@ -1,4 +1,11 @@
-﻿a.buttonLevelSelect {
+﻿/* 
+    COMP4952 Project
+    Author: Teah Elaschuk
+
+    Styles used for the level select buttons and their tool tips in Game.aspx
+*/
+
+a.buttonLevelSelect {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   border-radius: 25px;
