@@ -68,6 +68,7 @@ namespace CeeSharp
             InitFretboard();
             InitValues();
             SetTooltips();
+            SetStringLabels();
         }
 
         /// <summary>
@@ -162,11 +163,25 @@ namespace CeeSharp
             string s = "";
             for(int i = 0; i < numStrings; i++)
             {
-                for(int j = 0; j < numFrets; j++)
+                for(int j = 1; j < numFrets; j++)
                 {
-                    notes.TryGetValue(Table_fretboard.Rows[i].Cells[j], out s);
-                    Table_fretboard.Rows[i].Cells[j].ToolTip = s;
+                    if(notes.TryGetValue(Table_fretboard.Rows[i].Cells[j], out s))
+                        Table_fretboard.Rows[i].Cells[j].ToolTip = s;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Sets the string names in the first column (open notes)
+        /// </summary>
+        protected void SetStringLabels()
+        {
+            string s = "";
+            for(int i = 0; i < numStrings; i++)
+            {
+                Control btn = Table_fretboard.Rows[i].Cells[0].Controls[0];
+                if (notes.TryGetValue(Table_fretboard.Rows[i].Cells[0], out s))
+                    (btn as LinkButton).Text = s;
             }
         }
 

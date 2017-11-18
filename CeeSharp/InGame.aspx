@@ -10,7 +10,7 @@
         displays the game type and level at the moment
     -->
     <div class="container text-center">
-        <asp:Label ID="Label_title" class="fuck" runat="server" Text=""></asp:Label>
+        <asp:Label ID="Label_title" runat="server" Text=""></asp:Label>
         <br />
         <br />
 
