@@ -91,12 +91,8 @@ namespace CeeSharp
 
         protected void AccountBtn_Click(object sender, ImageClickEventArgs e)
         {
-<<<<<<< HEAD
             Response.Redirect("~/Account/Login.aspx");
             
-=======
-            Response.Redirect("~/Login");            
->>>>>>> 43f76af0e436ec05087fa49c668fb2723d0f630e
         }
 
         protected void AchievementBtn_Click(object sender, ImageClickEventArgs e)
