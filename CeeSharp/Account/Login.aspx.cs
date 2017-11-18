@@ -16,6 +16,7 @@ namespace CeeSharp.Account
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
+            
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             if (!String.IsNullOrEmpty(returnUrl))
             {
@@ -25,6 +26,7 @@ namespace CeeSharp.Account
 
         protected void LogIn(object sender, EventArgs e)
         {
+
             if (IsValid)
             {
                 // Validate the user password
@@ -38,13 +40,14 @@ namespace CeeSharp.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        Response.Redirect("~/Achievements");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");
                         break;
                     case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
+                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
                                                         Request.QueryString["ReturnUrl"],
                                                         RememberMe.Checked),
                                           true);
