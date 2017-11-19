@@ -14,7 +14,7 @@
         <br />
         <br />
 
-        <asp:Table ID="Table_fretboard" runat="server" BorderStyle="Solid" BorderColor="Black">
+        <asp:Table ID="Table_fretboard" class="fretboard" runat="server" >
         </asp:Table>
 
     </div>

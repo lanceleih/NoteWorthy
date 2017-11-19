@@ -51,3 +51,24 @@ a.buttonLevelSelect:hover {
     visibility: visible;
 }
 /* end section*/
+
+/* in-game page */
+.fretboard {
+    border: solid 2px black;
+}
+
+.cell_nut {
+    border-left: solid 2px black;
+    border-right: solid 2px black;
+    height: 50px;
+    background-color: beige;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cell_fret {
+    border-left: solid 2px black;
+    border-right: solid 2px black;
+    padding: 0;
+    height: 50px;
+}
