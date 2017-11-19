@@ -82,28 +82,15 @@ namespace CeeSharp
             for (int i = 0; i < 6; i++)
             {
                 Table_fretboard.Rows.Add(new TableRow());
-
-                // for each fret on the fretboard, create a note and style it
-                for (int j = 0; j < numFrets; j++)
+                for (int j = 0; j < numFrets; j++)     // for each fret per string, create a note and assign a css class
                 {
-                    Table_fretboard.Rows[i].Cells.Add(new TableCell());
-                    Table_fretboard.Rows[i].Cells[j].Style.Add("border-left", "solid 2px black");
-                    Table_fretboard.Rows[i].Cells[j].Style.Add("border-right", "solid 2px black");
-                    Table_fretboard.Rows[i].Cells[j].Style.Add("padding", "0");
-                    Table_fretboard.Rows[i].Cells[j].Style.Add("height", "50px");
-
-                    if (j == 0)
+                    if (j == 0)  // open string, style differently
                     {
-                        // the first note is not technically a fret, but an open string. 
-                        // styled differently for clarity
-                        Table_fretboard.Rows[i].Cells[j].BackColor = System.Drawing.Color.Beige;
-                        Table_fretboard.Rows[i].Cells[j].Text = "*";
-                        Table_fretboard.Rows[i].Cells[j].Style.Add("padding-left", "10px");
-                        Table_fretboard.Rows[i].Cells[j].Style.Add("padding-right", "10px");
+                        Table_fretboard.Rows[i].Cells.Add(new TableCell() { CssClass = "cell_nut" });
                     }
-                    else
+                    else // regular note
                     {
-                        // regular fret
+                        Table_fretboard.Rows[i].Cells.Add(new TableCell() { CssClass = "cell_fret" });  
                         Table_fretboard.Rows[i].Cells[j].Controls.Add(new ImageButton
                         {
                             ImageUrl = "~/Icons/bigstring.png",
@@ -126,9 +113,6 @@ namespace CeeSharp
             {
                 switch(i)
                 {
-                    case 0:
-                        k = 7;      // index of note E
-                        break;
                     case 1:
                         k = 2;      // index of note B
                         break;
@@ -141,12 +125,9 @@ namespace CeeSharp
                     case 4:
                         k = 0;      // index of note A
                         break;
-                    case 5:
-                        k = 7;      // index of note E
-                        break;
-                    default:        // should not get here
-                        k = 0;
-                        break;                 
+                    default:
+                        k = 7;      // index of notes E and e
+                        break;                
                 }
                 for(int j = 0; j < numFrets; j++)
                 {
