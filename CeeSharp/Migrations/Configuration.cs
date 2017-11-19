@@ -10,7 +10,6 @@ namespace CeeSharp.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(CeeSharp.Models.ApplicationDbContext context)
