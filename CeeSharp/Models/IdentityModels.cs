@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CeeSharp.Models;
+using System.Security.Principal;
 
 namespace CeeSharp.Models
 {
@@ -15,10 +16,16 @@ namespace CeeSharp.Models
     {
         public string Achievement { get; set; }
         public string Profile_Picture { get; set; }
+        public string NickName { get; set; }
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = manager.CreateIdentity(this, DefaultAuthenticationTypes.ApplicationCookie);
+
+            userIdentity.AddClaim(new Claim("Achievement", this.Achievement.ToString()));
+            userIdentity.AddClaim(new Claim("Profile_Picture", this.Profile_Picture.ToString()));
+            userIdentity.AddClaim(new Claim("NickName", this.NickName.ToString()));
+
             // Add custom user claims here
             return userIdentity;
         }
@@ -39,6 +46,33 @@ namespace CeeSharp.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+    }
+}
+
+namespace App.Extensions
+{
+    public static class IdentityExtensions
+    {
+        public static string GetAchievement(this IIdentity identity)
+        {
+            var claim = ((ClaimsIdentity)identity).FindFirst("Achievement");
+            // Test for null to avoid issues during local testing
+            return (claim != null) ? claim.Value : string.Empty;
+        }
+
+        public static string GetProfile_Picture(this IIdentity identity)
+        {
+            var claim = ((ClaimsIdentity)identity).FindFirst("Profile_Picture");
+            // Test for null to avoid issues during local testing
+            return (claim != null) ? claim.Value : string.Empty;
+        }
+
+        public static string GetNickName(this IIdentity identity)
+        {
+            var claim = ((ClaimsIdentity)identity).FindFirst("NickName");
+            // Test for null to avoid issues during local testing
+            return (claim != null) ? claim.Value : string.Empty;
         }
     }
 }

@@ -26,7 +26,6 @@ namespace CeeSharp.Account
 
         protected void LogIn(object sender, EventArgs e)
         {
-
             if (IsValid)
             {
                 // Validate the user password
@@ -41,7 +40,6 @@ namespace CeeSharp.Account
                 {
                     case SignInStatus.Success:
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        // Response.Redirect("~/Achievements");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");
