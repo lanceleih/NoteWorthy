@@ -13,7 +13,7 @@
         <asp:Label ID="Label_title" runat="server" Text=""></asp:Label>
         <br />
         <br />
-
+        <div>
         <asp:Table ID="Table_fretboard" class="fretboard" runat="server" >
         </asp:Table>
 
