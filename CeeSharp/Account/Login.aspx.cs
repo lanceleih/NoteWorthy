@@ -16,7 +16,10 @@ namespace CeeSharp.Account
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            
+
+            // Set Enter key to trigger Login button
+            this.Form.DefaultButton = this.loginBtn.UniqueID;
+
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             if (!String.IsNullOrEmpty(returnUrl))
             {
