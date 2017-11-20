@@ -11,11 +11,20 @@ namespace CeeSharp.Account
 {
     public partial class Register : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.Form.DefaultButton = this.registerBtn.UniqueID;
+        }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, Achievement = "0", Profile_Picture = "Default.jpg", NickName = Username.Text };
+            var user = new ApplicationUser() { UserName = Email.Text,
+                                               Email = Email.Text, Achievement = "0",
+                                               Profile_Picture = "Default.jpg",
+                                               NickName = Username.Text};
+
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
