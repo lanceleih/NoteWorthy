@@ -46,14 +46,15 @@ namespace CeeSharp
             }
 
             Page.PreLoad += master_Page_PreLoad;
-            if(Session["HiddenNav"] != null)
+            if (Session["HiddenNav"] != null)
             {
                 var hideNav = Session["HiddenNav"];
-                if(hideNav.Equals("hide"))
+                if (hideNav.Equals("hide"))
                 {
                     navIcons.Visible = false;
                     Session["HiddenNav"] = "show";
-                } else
+                }
+                else
                 {
                     navIcons.Visible = true;
                 }
@@ -89,21 +90,47 @@ namespace CeeSharp
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
+        /// <summary>
+        /// Redirect users to Login page or Manage page if it's logged in
+        /// </summary>
+        /// <param name="sender">Account Icon Button</param>
+        /// <param name="e">Clicked</param>
         protected void AccountBtn_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("~/Account/Login");
+            if (Context.User.Identity.GetUserName() != null && Context.User.Identity.IsAuthenticated)
+                Response.Redirect("~/Account/Manage");
+            else
+                Response.Redirect("~/Account/Login");
         }
 
+        /// <summary>
+        /// Redirect to Login page or Acheivements page if it's logged in
+        /// </summary>
+        /// <param name="sender">Achievement Icon Button</param>
+        /// <param name="e">Clicked</param>
         protected void AchievementBtn_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("~/Achievements");
+            if (Context.User.Identity.GetUserName() != null && Context.User.Identity.IsAuthenticated)
+                Response.Redirect("~/Achievements");
+            else
+                Response.Redirect("~/Account/Login");
         }
 
+        /// <summary>
+        /// Redirect to Tutorial page
+        /// </summary>
+        /// <param name="sender">Tutorial Icon Button</param>
+        /// <param name="e">Clicked</param>
         protected void TutorialBtn_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("~/Tutorial");
         }
 
+        /// <summary>
+        /// Redirect to Game (Level) page
+        /// </summary>
+        /// <param name="sender">Game Icon Button</param>
+        /// <param name="e">Clicked</param>
         protected void PlayBtn_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("~/Game");
