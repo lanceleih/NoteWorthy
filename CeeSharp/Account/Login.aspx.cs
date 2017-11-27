@@ -27,6 +27,12 @@ namespace CeeSharp.Account
             }
         }
 
+        /// <summary>
+        /// If form is valid, try to login.
+        /// If success, redirect back to home page
+        /// </summary>
+        /// <param name="sender">Login Button</param>
+        /// <param name="e">Clicked</param>
         protected void LogIn(object sender, EventArgs e)
         {
             if (IsValid)
