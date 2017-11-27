@@ -10,13 +10,15 @@
 }
 
 a.buttonLevelSelect {
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px;
-  border: solid orchid 4px;
-  background-color: white;
-  margin-left: 10px;
-  margin-right:10px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    background-color: orchid;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+    text-decoration: none;
+    line-height: 3.5;
 }
 
 a.buttonLevelSelect:hover {
@@ -33,11 +35,12 @@ a.buttonLevelSelect:hover {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
+    line-height: 2;
 
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    margin-left: -100px;
+    margin-left: -115px;
     margin-top: 60px;
 }
 .tooltiptext::after {
@@ -75,7 +78,7 @@ a.buttonLevelSelect:hover {
     border-right: solid 2px black;
     padding: 0;
     height: 50px;
-    background-color: white;
+    background-color: white;    
 }
 
 body {
