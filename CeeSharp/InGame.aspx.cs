@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -95,7 +96,8 @@ namespace CeeSharp
                         {
                             ImageUrl = "~/Icons/bigstring.png",
                             Width = new Unit("100%"),
-                            CausesValidation = false
+                            CausesValidation = false,
+                            OnClientClick = "return false;"
                         });
                     }
                 }
@@ -166,6 +168,5 @@ namespace CeeSharp
                     Table_fretboard.Rows[i].Cells[0].Text = s;
             }
         }
-
     }
 }

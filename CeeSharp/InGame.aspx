@@ -16,7 +16,6 @@
         <div>
         <asp:Table ID="Table_fretboard" class="fretboard" runat="server" >
         </asp:Table>
-
     </div>
    
 </asp:Content>
