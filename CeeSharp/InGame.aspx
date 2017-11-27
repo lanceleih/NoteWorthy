@@ -13,10 +13,16 @@
         <asp:Label ID="Label_title" runat="server" Text=""></asp:Label>
         <br />
         <br />
-        <div>
         <asp:Table ID="Table_fretboard" class="fretboard" runat="server" >
         </asp:Table>
     </div>
+    <br />
+    <br />
+    <div class="container">       
+        <asp:Label ID="Label_current" runat="server" Text="Current Note: "></asp:Label>
+        <asp:Label ID="Label_currentNote" runat="server" Text=""></asp:Label>
+    </div>
+
    
 </asp:Content>
 

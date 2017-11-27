@@ -1,5 +1,4 @@
-﻿using App.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,8 +12,6 @@ namespace CeeSharp
     /// COMP4952 Project
     /// Author: Teah Elaschuk
     /// Code behind for InGame page: Work in progress
-    /// No actual game functionality yet, but the fretboard is created and each fret knows
-    /// its note value.
     /// 
     /// Clicking on a fret will display the selected note.
     /// </summary>
@@ -42,6 +39,9 @@ namespace CeeSharp
         /// Maps the cells to the musical notes
         /// </summary>
         private Dictionary<TableCell, string> notes;
+
+        private TableCell start;
+        private TableCell current;
 
 
         /// <summary>
@@ -71,6 +71,11 @@ namespace CeeSharp
             InitValues();
             SetTooltips();
             SetStringLabels();
+
+            start = Table_fretboard.Rows[5].Cells[1];
+            string s = "error";
+            notes.TryGetValue(start, out s);
+            Label_current.Text = s;
         }
 
         /// <summary>
@@ -91,14 +96,16 @@ namespace CeeSharp
                     }
                     else // regular note
                     {
-                        Table_fretboard.Rows[i].Cells.Add(new TableCell() { CssClass = "cell_fret" });  
-                        Table_fretboard.Rows[i].Cells[j].Controls.Add(new ImageButton
+                        Table_fretboard.Rows[i].Cells.Add(new TableCell() { CssClass = "cell_fret" });
+                        ImageButton ib = new ImageButton
                         {
                             ImageUrl = "~/Icons/bigstring.png",
                             Width = new Unit("100%"),
                             CausesValidation = false,
                             OnClientClick = "return false;"
-                        });
+                        };
+                        ib.Click += ImageButton_Click;
+                        Table_fretboard.Rows[i].Cells[j].Controls.Add(ib);
                     }
                 }
             }
@@ -168,5 +175,12 @@ namespace CeeSharp
                     Table_fretboard.Rows[i].Cells[0].Text = s;
             }
         }
+        private void ImageButton_Click(Object sender, ImageClickEventArgs e)
+        {
+            //Label_title.Text = "FUCK";
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "here", true);
+
+        }
+
     }
 }

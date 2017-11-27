@@ -14,14 +14,14 @@
         <!-- Intervals section -->
                 <h3><b>Intervals</b></h3>
                 <hr class="divider" />
-                <asp:LinkButton
+               <asp:LinkButton
                     ID="linkbtn_8ve"
                     runat="server"
                     class="buttonLevelSelect"
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="8ve">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>8ve</b>
                     <span class="tooltiptext">Level 0: Octaves</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -30,8 +30,8 @@
                     class="buttonLevelSelect"                    
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="m2"> 
+                    onClick="IntervalSelectBtn_Click"> 
+                    <b>min2</b>
                     <span class="tooltiptext">Level 1: Minor Seconds</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -40,8 +40,8 @@
                     class="buttonLevelSelect"                 
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="M2">                  
+                    onClick="IntervalSelectBtn_Click">
+                    <b>maj2</b>                  
                     <span class="tooltiptext">Level 2: Major Seconds</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -50,8 +50,8 @@
                     class="buttonLevelSelect"                
                     height="50"
                     width = "50" 
-                    onClick="IntervalSelectBtn_Click"
-                    Text="m3">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>min3</b>     
                     <span class="tooltiptext">Level 3: Minor Thirds</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -60,8 +60,8 @@
                     class="buttonLevelSelect"           
                     height="50"
                     width = "50" 
-                    onClick="IntervalSelectBtn_Click" 
-                    Text="M4">                    
+                    onClick="IntervalSelectBtn_Click" >
+                    <b>maj3</b>      
                     <span class="tooltiptext">Level 4: Major Thirds</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -70,8 +70,8 @@
                     class="buttonLevelSelect"          
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="P4">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>p4</b>     
                     <span class="tooltiptext">Level 5: Perfect Fourths</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -80,8 +80,8 @@
                     class="buttonLevelSelect"         
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="m5">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>min5</b>     
                     <span class="tooltiptext">Level 6: Minor Fifths (Tritones)</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -90,8 +90,8 @@
                     class="buttonLevelSelect"          
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="P5">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>p5</b>     
                     <span class="tooltiptext">Level 7: Perfect Fifths</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -100,8 +100,8 @@
                     class="buttonLevelSelect"            
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="m6">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>min6</b>     
                     <span class="tooltiptext">Level 8: Minor Sixths</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -110,8 +110,8 @@
                     class="buttonLevelSelect"             
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="M6">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>maj6</b>     
                     <span class="tooltiptext">Level 9: Major Sixths</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -120,8 +120,8 @@
                     class="buttonLevelSelect"              
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="m7">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>min7</b>     
                     <span class="tooltiptext">Level 10: Minor Sevenths</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -130,8 +130,8 @@
                     class="buttonLevelSelect"                                 
                     height="50"
                     width = "50"
-                    onClick="IntervalSelectBtn_Click"
-                    Text="M7">
+                    onClick="IntervalSelectBtn_Click">
+                    <b>maj7</b>     
                     <span class="tooltiptext">Level 11: Major Sevenths</span>
                 </asp:LinkButton>
         
@@ -144,8 +144,8 @@
                     class="buttonLevelSelect"
                     height="50"
                     width = "50"
-                    onClick="ArpeggioSelectBtn_Click"
-                    Text="Maj7">
+                    onClick="ArpeggioSelectBtn_Click">
+                    <b>maj7</b>     
                     <span class="tooltiptext">Level 0: Maj7 Arpeggio</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -154,8 +154,8 @@
                     class="buttonLevelSelect"                                                   
                     height="50"
                     width = "50"
-                    onClick="ArpeggioSelectBtn_Click"
-                    Text="Min7">
+                    onClick="ArpeggioSelectBtn_Click">
+                    <b>min7</b>     
                     <span class="tooltiptext">Level 1: Min7 Arpeggio</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -164,8 +164,8 @@
                     class="buttonLevelSelect"                               
                     height="50"
                     width = "50"
-                    onClick="ArpeggioSelectBtn_Click"
-                    Text="m7b5">
+                    onClick="ArpeggioSelectBtn_Click">
+                    <b>m7b5</b>     
                     <span class="tooltiptext">Level 2: Min7b5 Arpeggio</span>
                 </asp:LinkButton>
                 <asp:LinkButton
@@ -174,8 +174,8 @@
                     class="buttonLevelSelect"                           
                     height="50"
                     width = "50"
-                    onClick="ArpeggioSelectBtn_Click"
-                    Text="dom7">                
+                    onClick="ArpeggioSelectBtn_Click">
+                    <b>dom7</b>     
                     <span class="tooltiptext">Level 3: Dom7 Arpeggio</span>
                 </asp:LinkButton>
         <br />

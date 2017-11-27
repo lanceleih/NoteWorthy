@@ -46,7 +46,7 @@
         <div runat="server" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/"><b>NoteWorthy</b></a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
@@ -71,14 +71,8 @@
         
         <div class="container body-content">
             <div id="navIcons" runat="server" class="container text-center">
-                    <br />
-                    <br />
-                    <h1>NoteWorthy</h1>
-                    <br />
-                    <br />
+                    <br /><br />
                     <div class="row">
-                        <div class="span-3">
-                            &nbsp;</div>
                         <div class="span-3">
 
                             <asp:ImageButton ID="AccountBtn" runat="server" Height="150px" ImageUrl="~/Icons/003-profile.png" OnClick="AccountBtn_Click" CausesValidation="False" />
@@ -90,8 +84,6 @@
                             <asp:ImageButton ID="PlayBtn" runat="server" Height="150px" ImageUrl="~/Icons/001-arrows.png" OnClick="PlayBtn_Click" CausesValidation="False" />
                         </div>
                         <div class="span-3">
-                            &nbsp;</div>
-                        <div class="auto-style1">
                             &nbsp;</div>
                     </div>
                 </div>
