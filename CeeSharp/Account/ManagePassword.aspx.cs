@@ -24,29 +24,36 @@ namespace CeeSharp.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            if (!IsPostBack)
+            if (Context.User.Identity.GetUserName() != null && Context.User.Identity.IsAuthenticated)
             {
-                // Determine the sections to render
-                if (HasPassword(manager))
-                {
-                    changePasswordHolder.Visible = true;
-                }
-                else
-                {
-                    setPassword.Visible = true;
-                    changePasswordHolder.Visible = false;
-                }
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-                // Render success message
-                var message = Request.QueryString["m"];
-                if (message != null)
+                this.Form.DefaultButton = this.ChangePasswordBtn.UniqueID;
+
+                if (!IsPostBack)
                 {
-                    // Strip the query string from action
-                    Form.Action = ResolveUrl("~/Account/Manage");
+                    // Determine the sections to render
+                    if (HasPassword(manager))
+                    {
+                        changePasswordHolder.Visible = true;
+                    }
+                    else
+                    {
+                        setPassword.Visible = true;
+                        changePasswordHolder.Visible = false;
+                    }
+
+                    // Render success message
+                    var message = Request.QueryString["m"];
+                    if (message != null)
+                    {
+                        // Strip the query string from action
+                        Form.Action = ResolveUrl("~/Account/Manage");
+                    }
                 }
             }
+            else
+                Response.Redirect("~/Default");
         }
 
         protected void ChangePassword_Click(object sender, EventArgs e)
@@ -59,7 +66,7 @@ namespace CeeSharp.Account
                 if (result.Succeeded)
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
-                    signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                     Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
                 }
                 else
