@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 
 namespace CeeSharp
 {
-    
     /// <summary>
     /// COMP4952 Project
     /// Author: Teah Elaschuk
@@ -16,15 +15,8 @@ namespace CeeSharp
     /// Clicking on a fret will display the selected note.
     /// </summary>
     public partial class InGame : System.Web.UI.Page
-    {
-        /// <summary>
-        /// The musical alphabet - we would like to eventually implement this in a singleton class,
-        /// or some other globally accessible way
-        /// </summary>
-        private List<string> alf = new List<string>{
-            "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"
-        };
-
+    {        
+         
         /// <summary>
         /// Number of strings on the guitar
         /// </summary>
@@ -38,7 +30,7 @@ namespace CeeSharp
         /// <summary>
         /// Maps the cells to the musical notes
         /// </summary>
-        private Dictionary<TableCell, string> notes;
+        private Dictionary<TableCell, Note> notes;
 
         private TableCell start;
         private TableCell current;
@@ -74,8 +66,8 @@ namespace CeeSharp
 
             start = Table_fretboard.Rows[5].Cells[1];
             string s = "error";
-            notes.TryGetValue(start, out s);
-            Label_current.Text = s;
+            Label_currentNote.Text = notes[start].Name;
+            
         }
 
         /// <summary>
@@ -101,8 +93,7 @@ namespace CeeSharp
                         {
                             ImageUrl = "~/Icons/bigstring.png",
                             Width = new Unit("100%"),
-                            CausesValidation = false,
-                            OnClientClick = "return false;"
+                            CausesValidation = false
                         };
                         ib.Click += ImageButton_Click;
                         Table_fretboard.Rows[i].Cells[j].Controls.Add(ib);
@@ -116,7 +107,7 @@ namespace CeeSharp
         /// </summary>
         protected void InitValues()
         {
-            notes = new Dictionary<TableCell, string>();
+            notes = new Dictionary<TableCell, Note>();
             int k;
             for(int i = 0; i < numStrings; i++)
             {
@@ -142,7 +133,7 @@ namespace CeeSharp
                 {
                     if (k == 12)        // if the index goes out of bounds, go back to the beginning
                         k = 0;
-                    notes.Add(Table_fretboard.Rows[i].Cells[j], alf[k++]);
+                    notes.Add(Table_fretboard.Rows[i].Cells[j], NotesProvider.Notes[k++]);
                 }
             }
         }
@@ -157,8 +148,7 @@ namespace CeeSharp
             {
                 for(int j = 1; j < numFrets; j++)
                 {
-                    if(notes.TryGetValue(Table_fretboard.Rows[i].Cells[j], out s))
-                        Table_fretboard.Rows[i].Cells[j].ToolTip = s;
+                    Table_fretboard.Rows[i].Cells[j].ToolTip = notes[Table_fretboard.Rows[i].Cells[j]].Name;
                 }
             }
         }
@@ -171,16 +161,21 @@ namespace CeeSharp
             string s = "";
             for(int i = 0; i < numStrings; i++)
             {
-                if (notes.TryGetValue(Table_fretboard.Rows[i].Cells[0], out s))
-                    Table_fretboard.Rows[i].Cells[0].Text = s;
+                    Table_fretboard.Rows[i].Cells[0].Text = notes[Table_fretboard.Rows[i].Cells[0]].Name;
             }
         }
+
         private void ImageButton_Click(Object sender, ImageClickEventArgs e)
         {
-            //Label_title.Text = "FUCK";
-            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "here", true);
-
+            if (sender is ImageButton) {
+                Control p = (sender as ImageButton).Parent;
+                if (p is TableCell)
+                {
+                    Label_currentNote.Text = notes[(p as TableCell)].Name;
+                }
+            }
+            
         }
 
-    }
+    }    
 }
