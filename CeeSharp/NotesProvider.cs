@@ -20,7 +20,26 @@ namespace CeeSharp
         public static Note G = new Note("G");
         public static Note Gsh = new Note("G#");
         public static List<Note> Notes = new List<Note> { A, Ash, B, C, Csh, D, Dsh, E, F, Fsh, G, Gsh };
-        
+
+        public static Note GetTarget(Note prev, int dist)
+        {
+            int i = Notes.IndexOf(prev);
+            if ((i += dist) > 11)
+            {
+                i -= 12;
+            }
+            return Notes[i];
+        }
+
+        public static Note GetNoteByName(string s)
+        {
+            foreach(Note n in Notes)
+            {
+                if (n.Name == s)
+                    return n;
+            }
+            return null;
+        }
     }
 
     public class Note

@@ -13,112 +13,112 @@ namespace CeeSharp {
     public partial class Game {
         
         /// <summary>
-        /// linkbtn_8ve control.
+        /// btn_12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_8ve;
+        protected global::System.Web.UI.WebControls.LinkButton btn_12;
         
         /// <summary>
-        /// linkbtn_min2 control.
+        /// btn_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_min2;
+        protected global::System.Web.UI.WebControls.LinkButton btn_1;
         
         /// <summary>
-        /// linkbtn_maj2 control.
+        /// btn_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_maj2;
+        protected global::System.Web.UI.WebControls.LinkButton btn_2;
         
         /// <summary>
-        /// linkbtn_min3 control.
+        /// btn_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_min3;
+        protected global::System.Web.UI.WebControls.LinkButton btn_3;
         
         /// <summary>
-        /// linkbtn_maj3 control.
+        /// btn_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_maj3;
+        protected global::System.Web.UI.WebControls.LinkButton btn_4;
         
         /// <summary>
-        /// linkbtn_p4 control.
+        /// btn_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_p4;
+        protected global::System.Web.UI.WebControls.LinkButton btn_5;
         
         /// <summary>
-        /// linkbtn_min5 control.
+        /// btn_6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_min5;
+        protected global::System.Web.UI.WebControls.LinkButton btn_6;
         
         /// <summary>
-        /// linkbtn_p5 control.
+        /// btn_7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_p5;
+        protected global::System.Web.UI.WebControls.LinkButton btn_7;
         
         /// <summary>
-        /// linkbtn_min6 control.
+        /// btn_8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_min6;
+        protected global::System.Web.UI.WebControls.LinkButton btn_8;
         
         /// <summary>
-        /// linkbtn_maj6 control.
+        /// btn_9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_maj6;
+        protected global::System.Web.UI.WebControls.LinkButton btn_9;
         
         /// <summary>
-        /// linkbtn_min7 control.
+        /// btn_10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_min7;
+        protected global::System.Web.UI.WebControls.LinkButton btn_10;
         
         /// <summary>
-        /// linkbtn_maj7 control.
+        /// btn_11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_maj7;
+        protected global::System.Web.UI.WebControls.LinkButton btn_11;
         
         /// <summary>
         /// linkbtn_arp_maj7 control.

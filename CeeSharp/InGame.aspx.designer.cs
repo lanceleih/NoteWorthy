@@ -31,21 +31,39 @@ namespace CeeSharp {
         protected global::System.Web.UI.WebControls.Table Table_fretboard;
         
         /// <summary>
-        /// Label_current control.
+        /// Label_tprevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_current;
+        protected global::System.Web.UI.WebControls.Label Label_tprevious;
         
         /// <summary>
-        /// Label_currentNote control.
+        /// Label_previous control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_currentNote;
+        protected global::System.Web.UI.WebControls.Label Label_previous;
+        
+        /// <summary>
+        /// Label_ttarget control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ttarget;
+        
+        /// <summary>
+        /// Label_target control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_target;
     }
 }

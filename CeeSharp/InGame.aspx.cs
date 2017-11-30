@@ -32,8 +32,10 @@ namespace CeeSharp
         /// </summary>
         private Dictionary<TableCell, Note> notes;
 
-        private TableCell start;
-        private TableCell current;
+        private Note previous;
+        private Note selected;
+        private Note target;
+        private int dist;
 
 
         /// <summary>
@@ -45,28 +47,38 @@ namespace CeeSharp
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.QueryString["GameType"] != null 
-                && Request.QueryString["Level"] != null)
+
+            // no level information, go back
+            if (Request.QueryString["GameType"] == null
+                || Request.QueryString["Dist"] == null)
             {
-                // extract the level information and display it at the top of the page
-                Label_title.Text = "<h1>" 
-                    + Request.QueryString["GameType"].ToString() 
-                    + ": " + Request.QueryString["Level"].ToString()
-                    + "</h1>";
-            } else
-            {
-                // no level information, go back
                 Response.Redirect("~/Game.aspx");
             }
 
+            // extract the level information and display it at the top of the page
+            Label_title.Text = "<h1>"
+                + Request.QueryString["GameType"].ToString()
+                + ": " + Request.QueryString["Dist"].ToString()
+                + "</h1>";
+
+            // init UI
             InitFretboard();
             InitValues();
             SetTooltips();
             SetStringLabels();
 
-            start = Table_fretboard.Rows[5].Cells[1];
-            string s = "error";
-            Label_currentNote.Text = notes[start].Name;
+            Int32.TryParse(Request.QueryString["Dist"], out dist);
+
+            if (!IsPostBack)
+            {
+                selected = previous = NotesProvider.F;
+                SetUpTurn();                
+            }
+            else
+            {
+                previous = NotesProvider.GetNoteByName(Label_previous.Text);
+                target = NotesProvider.GetNoteByName(Label_target.Text);
+            }
             
         }
 
@@ -143,7 +155,6 @@ namespace CeeSharp
         /// </summary>
         protected void SetTooltips()
         {
-            string s = "";
             for(int i = 0; i < numStrings; i++)
             {
                 for(int j = 1; j < numFrets; j++)
@@ -158,7 +169,6 @@ namespace CeeSharp
         /// </summary>
         protected void SetStringLabels()
         {
-            string s = "";
             for(int i = 0; i < numStrings; i++)
             {
                     Table_fretboard.Rows[i].Cells[0].Text = notes[Table_fretboard.Rows[i].Cells[0]].Name;
@@ -171,10 +181,38 @@ namespace CeeSharp
                 Control p = (sender as ImageButton).Parent;
                 if (p is TableCell)
                 {
-                    Label_currentNote.Text = notes[(p as TableCell)].Name;
+                    selected = notes[(p as TableCell)];
+
+
+                    if (ValidateMove())
+                    {
+                        Label_title.Text = " GOOD";
+                        SetUpTurn();
+
+                    } else
+                    {
+                        Label_title.Text = "NO GOOD";
+                    }
                 }
             }
-            
+        }
+
+        private void SetUpTurn()
+        {
+            previous = selected;
+            target = NotesProvider.GetTarget(previous, dist);
+            System.Diagnostics.Debug.WriteLine("in setupturn: " + target.Name);
+            Label_previous.Text = previous.Name;
+            Label_target.Text = target.Name;
+        }
+
+        private bool ValidateMove()
+        {  
+            if (target.Name == selected.Name)
+                return true;
+            return false;
+
+
         }
 
     }    

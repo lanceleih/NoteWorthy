@@ -19,8 +19,10 @@
     <br />
     <br />
     <div class="container">       
-        <asp:Label ID="Label_current" runat="server" Text="Current Note: "></asp:Label>
-        <asp:Label ID="Label_currentNote" runat="server" Text=""></asp:Label>
+        <asp:Label ID="Label_tprevious" runat="server" Text="Current Note: "></asp:Label>
+        <asp:Label ID="Label_previous" runat="server" Text=""></asp:Label>
+        <asp:Label ID="Label_ttarget" runat="server" Text="Target: "></asp:Label>
+        <asp:Label ID="Label_target" runat="server" Text=""></asp:Label>
     </div>
 
    
