@@ -40,7 +40,7 @@
             }
 
             // extract the level information and display it at the top of the page
-            Label_title.Text = "<h1>"
+            Label_title.Text = "<h1>" 
                 + Request.QueryString["GameType"].ToString()
                 + ": " + Request.QueryString["Dist"].ToString()
                 + "</h1>";
@@ -227,8 +227,5 @@
     </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-    
-
-   
 </asp:Content>
 
