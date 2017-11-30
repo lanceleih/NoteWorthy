@@ -170,12 +170,12 @@
 
                     if (ValidateMove())
                     {
-                        Label_title.Text = " GOOD";
+                        Label_stat.Text = " GOOD";
                         SetUpTurn();
 
                     } else
                     {
-                        Label_title.Text = "NO GOOD";
+                        Label_stat.Text = "NO GOOD";
                     }
                 }
             }
@@ -222,6 +222,8 @@
         <asp:Label ID="Label_previous" runat="server" Text=""></asp:Label>
         <asp:Label ID="Label_ttarget" runat="server" Text="Target: "></asp:Label>
         <asp:Label ID="Label_target" runat="server" Text=""></asp:Label>
+        <br />
+        <asp:Label ID="Label_stat" runat="server" Text=""></asp:Label>
     </div>
         </ContentTemplate>
     </asp:UpdatePanel>
