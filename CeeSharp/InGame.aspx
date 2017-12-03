@@ -37,7 +37,8 @@
         private Note target;
         private int dist;
         private static int currRound = 1;
-
+        private int step;
+        private int goalStep;
 
 
         /// <summary>
@@ -220,13 +221,13 @@
 
         protected void TestBtn_Click(object sender, EventArgs e)
         {
-            if(currRound < 6)
+            if(currRound < 5)
             {
-                modalMessage.Text = "You finished round " + currRound++;
+                modalMessage.Text = "You finished round " + currRound;
 
             } else
             {
-                modalMessage.Text = "You finished the level!";
+                modalMessage.Text = "You finished the level! ";
                 OK.Text = "Finish";
             }
 
@@ -239,8 +240,9 @@
             ModalPopupExtender1.Hide();
 
             // Check and add achievements hurr
-            if(currRound > 5)
+            if(currRound.Equals(5))
                 Response.Redirect("~/Game");
+            currRound++;
         }
 
     </script>
