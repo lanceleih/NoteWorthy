@@ -37,8 +37,9 @@
         private Note target;
         private int dist;
         private static int currRound = 1;
-        private int step;
-        private int goalStep;
+        private static int move;
+        private static int goalStep;
+        private Random rand;
 
 
         /// <summary>
@@ -70,6 +71,8 @@
             SetTooltips();
             SetStringLabels();
 
+            rand = new Random();
+            Panel1.Visible = false;
             Int32.TryParse(Request.QueryString["Dist"], out dist);
 
             if (!IsPostBack)
@@ -77,6 +80,7 @@
                 selected = previous = NotesProvider.F;
                 SetUpTurn();
                 currRound = 1;
+                newGame();
             }
             else
             {
@@ -84,6 +88,15 @@
                 target = NotesProvider.GetNoteByName(Label_target.Text);
             }
 
+        }
+
+        protected void newGame()
+        {
+            move = 0;
+            goalStep = rand.Next(7,13);
+            Label_completed.Text = move + " / " + goalStep;
+            Label_move.Text = move.ToString();
+            
         }
 
         /// <summary>
@@ -190,9 +203,13 @@
 
                     if (ValidateMove())
                     {
-                        Label_stat.Text = " GOOD";
-                        SetUpTurn();
-
+                        
+                        move++;
+                        Label_stat.Text = "GOOD";
+                        if(move < goalStep)
+                            SetUpTurn();
+                          else
+                            showModal();
                     } else
                     {
                         Label_stat.Text = "NO GOOD";
@@ -208,6 +225,8 @@
             System.Diagnostics.Debug.WriteLine("in setupturn: " + target.Name);
             Label_previous.Text = previous.Name;
             Label_target.Text = target.Name;
+            Label_completed.Text = move + " / " + goalStep;
+            Label_move.Text = move.ToString();
         }
 
         private bool ValidateMove()
@@ -215,12 +234,29 @@
             if (target.Name == selected.Name)
                 return true;
             return false;
+            
+        }
 
+        protected void showModal()
+        {
+            Panel1.Visible = true;
+            stats.Visible = false;
+            if(currRound < 5)
+            {
+                modalMessage.Text = "You finished round " + currRound;
 
+            } else
+            {
+                modalMessage.Text = "You finished the level! ";
+                OK.Text = "Finish";
+            }
+
+            ModalPopupExtender1.Show();
         }
 
         protected void TestBtn_Click(object sender, EventArgs e)
         {
+            stats.Visible = false;
             if(currRound < 5)
             {
                 modalMessage.Text = "You finished round " + currRound;
@@ -238,10 +274,13 @@
         protected void OK_Click(object sender, EventArgs e)
         {
             ModalPopupExtender1.Hide();
+            stats.Visible = true;
 
             // Check and add achievements hurr
-            if(currRound.Equals(5))
+            if (currRound.Equals(5))
                 Response.Redirect("~/Game");
+            else
+                newGame();
             currRound++;
         }
 
@@ -266,21 +305,38 @@
                 </div>
                 <br />
                 <br />
-                <div class="container">       
-                    <asp:Label ID="Label_tprevious" runat="server" Text="Current Note: " ></asp:Label>
-                    <asp:Label ID="Label_previous" runat="server" Text=""></asp:Label>
-                    <asp:Label ID="Label_ttarget" runat="server" Text="Target: "></asp:Label>
-                    <asp:Label ID="Label_target" runat="server" Text=""></asp:Label>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9 col-md-6 col-lg-8">
+                            <asp:Label ID="Label_goal" runat="server" Text="Complete the level by moving around the freboard using the interval."></asp:Label>
+                        </div>
+                        <div id="stats" runat="server" class="col-sm-3 col-md-6 col-lg-4">
+                            <asp:Label ID="Label_tprevious" runat="server" Text="Current Note: " ></asp:Label>
+                            <asp:Label ID="Label_previous" runat="server" Text=""></asp:Label>
+                            <br />
+                            <asp:Label ID="Label_ttarget" runat="server" Text="Target: "></asp:Label>
+                            <asp:Label ID="Label_target" runat="server" Text=""></asp:Label>
+                            <br />
+                            <asp:Label ID="Label_tcompleted" runat="server" Text="Moves Completed: "></asp:Label>
+                            <asp:Label ID="Label_completed" runat="server" Text=""></asp:Label>
+                            <br />
+                            <asp:Label ID="Label_tmove" runat="server" Text="Current Move: "></asp:Label>
+                            <asp:Label ID="Label_move" runat="server" Text=""></asp:Label>
+                            <br />
+                            <asp:Label ID="Label_stat" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
                     <br />
-                    <asp:Label ID="Label_stat" runat="server" Text=""></asp:Label>
                     <br />
-                    <asp:Button ID="TestBtn" runat="server" Text="Next Round" OnClick="TestBtn_Click"/>
+                    <br />
+                    <br />
+                    <br />
                     <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup">
                         <h4>Congratulations!</h4>
                         <asp:Label ID="modalMessage" runat="server" Text="You finished this round!"></asp:Label>
                         <br />
                         <!-- Test to go to next round -->
-                        <asp:Button ID="OK" runat="server" Text="Go to Next Round" OnClick="OK_Click"   />
+                        <asp:Button ID="OK" runat="server" class="btn btn-primary" Text="Go to Next Round" OnClick="OK_Click"   />
                         <asp:HiddenField ID="hdnField" runat="server" />
                     </asp:Panel>
                     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" BackgroundCssClass="modalBackground" PopupControlID="Panel1" TargetControlID="hdnField">
