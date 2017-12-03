@@ -345,8 +345,8 @@
                 </div>
             </div>
           </div>
-         
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:Button runat="server" Text="Update" onClick="UpdateAchievement" />
 </asp:Content>
 

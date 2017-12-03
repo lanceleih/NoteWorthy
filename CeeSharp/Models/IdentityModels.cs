@@ -63,7 +63,7 @@ namespace App.Extensions
         /// <returns></returns>
         public static string GetAchievement(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity) identity).FindFirst("Achievement");
+            var claim = ((ClaimsIdentity)identity).FindFirst("Achievement");
             // Test for null to avoid issues during local testing
             return (claim != null) ? claim.Value : string.Empty;
         }
@@ -75,7 +75,7 @@ namespace App.Extensions
         /// <returns></returns>
         public static string GetProfile_Picture(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity) identity).FindFirst("Profile_Picture");
+            var claim = ((ClaimsIdentity)identity).FindFirst("Profile_Picture");
             return (claim != null) ? claim.Value : string.Empty;
         }
 
@@ -86,22 +86,26 @@ namespace App.Extensions
         /// <returns></returns>
         public static string GetNickName(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity) identity).FindFirst("NickName");
+            var claim = ((ClaimsIdentity)identity).FindFirst("NickName");
             return (claim != null) ? claim.Value : string.Empty;
         }
 
         public static void UpdateClaim(this IIdentity identity, string key, string value)
         {
             if (identity == null) return;
-            var claim = ((ClaimsIdentity) identity).FindFirst(key);
+            var claim = ((ClaimsIdentity)identity).FindFirst(key);
             if (claim != null)
             {
-                ((ClaimsIdentity) identity).RemoveClaim(claim);
+                ((ClaimsIdentity)identity).RemoveClaim(claim);
             }
 
             ((ClaimsIdentity)identity).AddClaim(new Claim(key, value));
             var authenManagaer = HttpContext.Current.GetOwinContext().Authentication;
-            authenManagaer.AuthenticationResponseGrant = new AuthenticationResponseGrant(new ClaimsIdentity(identity), new AuthenticationProperties() { IsPersistent = true });
+            // authenManagaer.AuthenticationResponseGrant = new AuthenticationResponseGrant(new ClaimsIdentity(identity), new AuthenticationProperties() { IsPersistent = true });
+            //authenManagaer.SignIn(
+            //    new AuthenticationProperties { IsPersistent = false },
+            //    ((ClaimsIdentity)identity));
+            //authenManagaer.SignIn(this.Name);
         }
     }
 }
