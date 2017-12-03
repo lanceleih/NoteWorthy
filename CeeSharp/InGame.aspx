@@ -224,8 +224,11 @@
         <asp:Label ID="Label_target" runat="server" Text=""></asp:Label>
         <br />
         <asp:Label ID="Label_stat" runat="server" Text=""></asp:Label>
+        
     </div>
+            
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:Button runat="server" Text="Update" onClick="UpdateAchievement" />
 </asp:Content>
 

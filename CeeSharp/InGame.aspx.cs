@@ -24,18 +24,25 @@ namespace CeeSharp
     /// </summary>
     public partial class InGame : System.Web.UI.Page
     {
+        /// <summary>
+        /// Author: Ebon
+        /// Modified By:
+        /// Name: Ebon    Change: regex expression     Date: 2017-12-03
+        /// 
+        /// Update uer's Achievement data
+        ///     Insert the new data if the data doesn't exist.
+        /// </summary>
         protected void UpdateAchievement(object sender, EventArgs e)
         {
             if (Context.User.Identity.GetUserName() != null && Context.User.Identity.IsAuthenticated)
             {
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var user = manager.FindByName(Context.User.Identity.Name);
-                Response.Write(Regex.Match(user.Achievement, @Request.QueryString["Dist"].ToString()).Value);
-                if (Regex.Match(user.Achievement, @Request.QueryString["Dist"].ToString()).Value != Request.QueryString["Dist"].ToString())
+
+                if (Regex.Match(user.Achievement, @", " + Request.QueryString["Dist"].ToString() + ",").Value != (", " + Request.QueryString["Dist"].ToString() + ","))
                 {
-                    user.Achievement += ", " + Request.QueryString["Dist"].ToString();
+                    user.Achievement += " " + Request.QueryString["Dist"].ToString() + ",";
                     manager.Update(user);
-                    Response.Write(user.Achievement);
                 }
 
             }
