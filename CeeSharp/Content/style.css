@@ -63,7 +63,7 @@ a.buttonLevelSelect:hover {
 
 
 .background {
-    background: url('../Icons/fb.png');
+    background: url("../Icons/fb.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
