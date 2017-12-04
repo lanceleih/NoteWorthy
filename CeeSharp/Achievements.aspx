@@ -18,8 +18,8 @@
                         <br />
                         <br />
                         <br />
-                        <ul class="list-inline">
-                            <li><img title="Sampler Plate" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="Finished Interval level with no error" runat="server" id="img1" src="Icons/002-success.png" height="75" /></li>
+                        <ul ID="imgList" class="list-inline" runat="server">
+                            <%--<li><img title="Sampler Plate" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="Finished Interval level with no error" runat="server" id="img1" src="Icons/002-success.png" height="75" /></li>
                             <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Sampler Plate Advanced" data-content="Finished Arpeggios level with no error" runat="server" id="img2" src="Icons/002-success.png" height="75" /></li>
                             <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Trooper" data-content="Complete a tutorial lesson" runat="server" id="img3" src="Icons/002-success.png" height="75" /></li>
                             <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Rising Star" data-content="Logged in more than 10 times" runat="server" id="img4" src="Icons/002-success.png" height="75" /></li>
@@ -29,7 +29,7 @@
                             <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Calloused Fingers" data-content="Finished an entire Interval course in one session" runat="server" id="img8" src="Icons/002-success.png" height="75" /></li>
                             <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Metal Fingers" data-content="Finished an entire Arpeggios course in one session" runat="server" id="img9" src="Icons/002-success.png" height="75" /></li>
                             <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Shooting Star" data-content="Finished an entire Interval course in one session with no error" runat="server" id="img10" src="Icons/002-success.png" height="75" /></li>
-                            <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Super Star" data-content="Finished an entire Arpeggios course in one session with no error" runat="server" id="img11" src="Icons/002-success.png" height="75" /></li>
+                            <li><img data-placement="top" data-toggle="popover" data-trigger="hover" title="Super Star" data-content="Finished an entire Arpeggios course in one session with no error" runat="server" id="img11" src="Icons/002-success.png" height="75" /></li>--%>
                         </ul>
 
                     </div>
