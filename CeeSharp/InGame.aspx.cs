@@ -39,13 +39,15 @@ namespace CeeSharp
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var user = manager.FindByName(Context.User.Identity.Name);
 
-                if (Regex.Match(user.Achievement, @", " + Request.QueryString["Dist"].ToString() + ",").Value != (", " + Request.QueryString["Dist"].ToString() + ","))
+                if (Regex.Match(user.Achievement, @"," + Request.QueryString["Dist"].ToString() + ",").Value != ("," + Request.QueryString["Dist"].ToString() + ","))
                 {
-                    user.Achievement += " " + Request.QueryString["Dist"].ToString() + ",";
+                    user.Achievement += Request.QueryString["Dist"].ToString() + ",";
                     manager.Update(user);
                 }
 
             }
         }
-    }
+    }    
+        
+    
 }
